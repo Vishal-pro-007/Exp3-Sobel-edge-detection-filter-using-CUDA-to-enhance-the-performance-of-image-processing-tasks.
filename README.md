@@ -177,7 +177,8 @@ What challenges did you face while implementing the Sobel filter for color image
 How did changing the block size influence the performance of your CUDA implementation?
 What were the differences in output between the CUDA and CPU implementations? Discuss any discrepancies.
 Suggest potential optimizations for improving the performance of the Sobel filter.
-
+Answer:
+While implementing the Sobel filter for color images, the main challenges were correctly handling RGB channels, image borders, and GPU memory indexing. Changing the block size affected performance because blocks that were too small did not use the GPU efficiently, while very large blocks could reduce occupancy; a balanced size such as 16×16 usually worked well. The CUDA and CPU outputs were mostly the same, with only small differences caused by floating-point rounding or border handling. Performance could be improved by using shared memory for neighboring pixels, coalesced memory access, CUDA streams, and tuning block sizes for the GPU.
 Deliverables:
 
 Modified CUDA code with comments explaining your changes.
